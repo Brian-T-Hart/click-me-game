@@ -8,3 +8,11 @@ body {
     text-align: center;
     padding-top: 20%;
 }
+
+@media screen and (min-width: 1224px) {
+
+    body {
+        padding: 40px 140px;
+    }
+
+}
