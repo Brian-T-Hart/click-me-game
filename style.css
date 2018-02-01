@@ -1,0 +1,10 @@
+body {
+    padding: 40px;
+}
+
+.squareDiv {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 20%;
+}
