@@ -9,6 +9,10 @@ body {
     padding-top: 20%;
 }
 
+button {
+    margin-right: 10px;
+}
+
 @media screen and (min-width: 1224px) {
 
     body {

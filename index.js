@@ -1,7 +1,12 @@
 $(document).ready(function () {
     var myScore = 0;
+    var changeTime = 1000;
     const colors = ['redSquare', 'blueSquare', 'greenSquare', 'yellowSquare'];
 
+    function startGame() {
+        displayMessage('Choose a difficulty Level');
+    };
+    
     function displayScore() {
         $('#displayScore').html('<h1>Score: ' + myScore + '</h1>');
     }
@@ -29,23 +34,46 @@ $(document).ready(function () {
                     window.location.reload();
                 });
             }
-        }, 1500);
+        }, changeTime);
     };
+
+    $('.levelBtn').click(function () {
+        console.log("The clicker is working.");
+        console.log(this.id);
+        if (this.id === "level1") {
+            changeTime = 2000;
+            displayText();
+        }
+        if (this.id === "level2") {
+            changeTime = 1000;
+            displayText();
+        }
+        if (this.id === "level3") {
+            changeTime = 800;
+            displayText();
+        }
+        $('#levelBtnDiv').hide();
+        displayMessage("Catch me if you can!")
+    });
 
     $(".squareDiv").click(function () {
         var divText = $("#" + this.id + "").html();
         if (divText === "") {
-            displayMessage("You missed! Try again!");
-            myScore = myScore - 2;
+            if (myScore < 10) {
+                displayMessage("You missed! Try again!");
+                myScore = myScore - 2;
+            }
             displayScore();
         }
         else {
-            displayMessage("You got it! Good job!");
-            myScore = myScore + 1;
+            if (myScore < 10) {
+                displayMessage("You got it! Good job!");
+                myScore = myScore + 1;
+            }
             displayScore();
         }
     });
 
-    displayText();
+    startGame();
 
 });
